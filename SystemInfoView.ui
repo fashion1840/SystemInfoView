@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SystemInfoView</class>
+ <widget class="QWidget" name="SystemInfoView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>708</width>
+    <height>499</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SystemInfoView</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#SystemInfoView{
+	
+	background-color: rgb(40,52,74);
+}</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>8</x>
+     <y>38</y>
+     <width>691</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame#frame{
+background-color: rgba(195,195,195,150);
+border-radius:6px;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>22</x>
+      <y>4</y>
+      <width>111</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 24px &quot;微软雅黑&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string>系统信息</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="btnStart">
+   <property name="geometry">
+    <rect>
+     <x>601</x>
+     <y>458</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>刷新</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>28</x>
+     <y>90</y>
+     <width>661</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 20px &quot;微软雅黑&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>电脑名称：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="labComputeName">
+      <property name="minimumSize">
+       <size>
+        <width>530</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	font: 20px &quot;微软雅黑&quot;;
+	color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 20px &quot;微软雅黑&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>处  理  器：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="labProcessorName">
+      <property name="minimumSize">
+       <size>
+        <width>530</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	font: 20px &quot;微软雅黑&quot;;
+	color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 20px &quot;微软雅黑&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>显       卡：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLabel" name="labCard">
+      <property name="minimumSize">
+       <size>
+        <width>530</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	font: 20px &quot;微软雅黑&quot;;
+	color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 20px &quot;微软雅黑&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>内       存：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLabel" name="labMemory">
+      <property name="minimumSize">
+       <size>
+        <width>530</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	font: 20px &quot;微软雅黑&quot;;
+	color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 20px &quot;微软雅黑&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>操作系统：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="labSystem">
+      <property name="minimumSize">
+       <size>
+        <width>530</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	font: 20px &quot;微软雅黑&quot;;
+	color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 20px &quot;微软雅黑&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>显  示  器：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLabel" name="labDisplay">
+      <property name="minimumSize">
+       <size>
+        <width>530</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	font: 20px &quot;微软雅黑&quot;;
+	color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: rgb(255, 255, 255);
+	font: 20px &quot;微软雅黑&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>磁盘空间：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLabel" name="labSpace">
+      <property name="minimumSize">
+       <size>
+        <width>530</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	
+	font: 20px &quot;微软雅黑&quot;;
+	color: rgb(255, 255, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="btnMini">
+   <property name="geometry">
+    <rect>
+     <x>648</x>
+     <y>9</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-image: url(:/Images/mini.png);
+}
+QPushButton:hover{
+border-image: url(:/Images/mini_hover.png);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnClose">
+   <property name="geometry">
+    <rect>
+     <x>678</x>
+     <y>10</y>
+     <width>18</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border-image: url(:/Images/close.png);
+}
+QPushButton:hover{
+border-image: url(:/Images/close_hover.png);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
