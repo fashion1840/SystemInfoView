@@ -4,7 +4,7 @@
 #include "ISystemInfoFactory.h"
 #include <QObject>
 
-class LinuxSysInfo : public QObject, public ISystemInfoFactory
+class LinuxSysInfo :  public ISystemInfoFactory
 {
     Q_OBJECT
 
@@ -32,6 +32,8 @@ private:
     double m_totalMem;
     double m_freeMem;
     QString m_memDescribe;
+    QString m_diskDescribe;
+    QString m_cardDescribe;
 
     double getValueByString(char *buff);
 };

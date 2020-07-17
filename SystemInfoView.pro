@@ -34,15 +34,18 @@ HEADERS +=  MacxSysInfo.h
 }
 
 unix{
-SOURCES +=  LinuxSysInfo.cpp
-HEADERS +=  LinuxSysInfo.h
+SOURCES +=  LinuxSysInfo.cpp \
+            CDiskInfo.cpp
+HEADERS +=  LinuxSysInfo.h \
+            CDiskInfo.h
 }
 
 
 SOURCES += main.cpp\
         SystemInfoView.cpp \
     ISystemInfoFactory.cpp \
-    IMoveWidget.cpp
+    IMoveWidget.cpp \
+
 
 HEADERS  += SystemInfoView.h \
     ISystemInfoFactory.h \

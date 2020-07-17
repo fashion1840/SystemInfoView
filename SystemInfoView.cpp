@@ -1,6 +1,8 @@
 ﻿#include "SystemInfoView.h"
 #include "WindowsSysInfo.h"
 #include "ui_SystemInfoView.h"
+#include "LinuxSysInfo.h"
+#include "MacxSysInfo.h"
 
 #pragma execution_character_set("utf-8")
 

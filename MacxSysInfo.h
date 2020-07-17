@@ -4,7 +4,7 @@
 #include "ISystemInfoFactory.h"
 #include <QObject>
 
-class MacxSysInfo : public QObject, public ISystemInfoFactory
+class MacxSysInfo : public ISystemInfoFactory
 {
     Q_OBJECT
 
