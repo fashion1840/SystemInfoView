@@ -55,12 +55,12 @@ QString LinuxSysInfo::memory()
         QString str(szTest);
         if (str.contains("MemTotal"))
         {
-            m_totalMem = getValueByString(str);
+            m_totalMem = getValueByString(szTest);
             bTotal = true;
         }
         else if (str.contains("MemFree"))
         {
-            m_freeMem = getValueByString(str);
+            m_freeMem = getValueByString(szTest);
             bFree = true;
         }
 
