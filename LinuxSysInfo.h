@@ -32,6 +32,7 @@ private:
     double m_totalMem;
     double m_freeMem;
     QString m_memDescribe;
+    QString m_diskDescribe;
 
     double getValueByString(char *buff);
 };
