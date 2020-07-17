@@ -1,21 +1,21 @@
 ﻿#include "LinuxSysInfo.h"
 #include "CDiskInfo.h"
+#include <QString>
 #include <fcntl.h>
 #include <linux/fb.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <sys/statfs.h>
 #include <sys/types.h>
-#include <xcb/xcb.h>
 #include <unistd.h>
-#include <sys/ioctl.h>
-#include <QString>
+#include <xcb/xcb.h>
 
-const uint GB = 1024 * 1024*1024;
+const uint GB = 1024 * 1024 * 1024;
 
 LinuxSysInfo::LinuxSysInfo() {}
 
@@ -49,22 +49,22 @@ QString LinuxSysInfo::cpuType()
 
 QString LinuxSysInfo::displayCard()
 {
-    m_cardDescribe="";
+    m_cardDescribe = "";
 
     QString strCommand = "lspci | grep -i vga";
 
     const char *str = strCommand.toUtf8().data();
     FILE *fp = popen(str, "r");
-    if(nullptr == fp)
+    if (nullptr == fp)
         return m_cardDescribe;
 
     char name[512] = { 0 };
     while (!feof(fp))
     {
         memset(name, 0, sizeof(name));
-        fgets(name, sizeof (name)-1, fp);
+        fgets(name, sizeof(name) - 1, fp);
         QString strName(name);
-        if(strName.isEmpty())
+        if (strName.isEmpty())
             return m_cardDescribe;
         QStringList list = strName.split(":");
         m_cardDescribe = list.last().trimmed();
@@ -160,19 +160,13 @@ QString LinuxSysInfo::screen()
     qDebug("  black pixel...: %u\n", screen->black_pixel);
     screenInfo = QString("%1像素 x %2像素) x %3个").arg(screen->width_in_pixels).arg(screen->height_in_pixels).arg(1);
 #else
-    int w, h, bpp;
-    int *fbmem;
 
     int fd;
     struct fb_var_screeninfo fb_var;
     fd = open("/dev/fb0", O_RDWR);
     ioctl(fd, FBIOGET_VSCREENINFO, &fb_var);
-    w = fb_var.xres;
-    h = fb_var.yres;
-    bpp = fb_var.bits_per_pixel;
-    qDebug("Framebuffer %d*%d-%dbpp\n", w, h, bpp);
-    screenInfo = QString("(%1像素 x %2像素) x %3个").arg(w).arg(h).arg(1);
-//    fbmem = mmap(nullptr, w * h * bpp / 8, PROT_WRITE | PROT_READ, MAP_SHARED, fd, 0);
+    screenInfo = QString("(%1像素 x %2像素) x %3个").arg(fb_var.xres).arg(fb_var.yres).arg(1);
+    close(fd);
 
 #endif
 
@@ -192,7 +186,9 @@ QString LinuxSysInfo::disk()
     m_diskDescribe = QString("%1G / %2G").arg(freeDisk).arg();
 #else
     CDiskInfo diskInfo("/");
-    m_diskDescribe =QString("可用 %1 GB / 共 %2 GB").arg(QString::asprintf("%.2f", diskInfo.getLeftSize()*1.0/GB)).arg(QString::asprintf("%.2f", diskInfo.getTotalSize()*1.0/GB));
+    m_diskDescribe = QString("可用 %1 GB / 共 %2 GB")
+                         .arg(QString::asprintf("%.2f", diskInfo.getLeftSize() * 1.0 / GB))
+                         .arg(QString::asprintf("%.2f", diskInfo.getTotalSize() * 1.0 / GB));
 #endif
 
     return m_diskDescribe;
@@ -202,7 +198,7 @@ double LinuxSysInfo::getValueByString(char *buff)
 {
     MEM_OCCUPY *mem = new MEM_OCCUPY;
     sscanf(buff, "%s %lu %s", &mem->name, &mem->total, &mem->unit_name);
-    QString total = QString::asprintf("%.1f", (float)mem->total / (1024*1024));
+    QString total = QString::asprintf("%.1f", (float)mem->total / (1024 * 1024));
     delete mem;
     return total.toDouble();
 }
