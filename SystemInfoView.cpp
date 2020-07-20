@@ -1,10 +1,15 @@
 ﻿#include "SystemInfoView.h"
-#include "WindowsSysInfo.h"
-#include "ui_SystemInfoView.h"
-#include "LinuxSysInfo.h"
-#include "MacxSysInfo.h"
 
+#include "ui_SystemInfoView.h"
+
+#ifdef Q_OS_LINUX
+#include "LinuxSysInfo.h"
+#elif defined Q_OS_MACOS
+#include "MacxSysInfo.h"
+#else
+#include "WindowsSysInfo.h"
 #pragma execution_character_set("utf-8")
+#endif
 
 SystemInfoView::SystemInfoView(QWidget *parent) : IMoveWidget(parent), ui(new Ui::SystemInfoView), sysInfo(nullptr)
 {
@@ -19,6 +24,8 @@ SystemInfoView::SystemInfoView(QWidget *parent) : IMoveWidget(parent), ui(new Ui
 #else
     sysInfo = new WindowsSysInfo();
 #endif
+
+    on_btnStart_clicked();
 }
 
 SystemInfoView::~SystemInfoView()

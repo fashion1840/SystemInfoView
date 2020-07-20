@@ -15,7 +15,7 @@ class SystemInfoView : public IMoveWidget
     Q_OBJECT
 
 public:
-    explicit SystemInfoView(QWidget *parent = 0);
+    explicit SystemInfoView(QWidget *parent = nullptr);
     ~SystemInfoView();
 
 private slots:

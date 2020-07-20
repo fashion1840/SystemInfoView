@@ -1,11 +1,11 @@
-﻿#include "CDiskInfo.h"
+﻿#include "QDiskInfo.h"
 extern "C"
 {
 #include <sys/vfs.h>
 }
 #include <string>
 
-CDiskInfo::CDiskInfo(const std::string &_path)
+QDiskInfo::QDiskInfo(const std::string &_path)
     : disk_total_capacity(0), disk_used_capacity(0), disk_free_capacity(0), disk_format(DISK_FORMAT_UNKNOW), path(_path)
 {
     struct statfs buf;
@@ -39,9 +39,9 @@ CDiskInfo::CDiskInfo(const std::string &_path)
     }
 }
 
-CDiskInfo::~CDiskInfo() {}
+QDiskInfo::~QDiskInfo() {}
 
-void CDiskInfo::refreshInfo()
+void QDiskInfo::refreshInfo()
 {
     struct statfs buf;
     int i = statfs(path.c_str(), &buf);
@@ -73,22 +73,22 @@ void CDiskInfo::refreshInfo()
     disk_used_capacity = disk_total_capacity - disk_free_capacity;
 }
 
-long long CDiskInfo::getTotalSize()
+long long QDiskInfo::getTotalSize()
 {
     return disk_total_capacity;
 }
 
-long long CDiskInfo::getUsedSize()
+long long QDiskInfo::getUsedSize()
 {
     return disk_used_capacity;
 }
 
-long long CDiskInfo::getLeftSize()
+long long QDiskInfo::getLeftSize()
 {
     return disk_free_capacity;
 }
 
-DISK_FORMAT CDiskInfo::getDiskFormat()
+DISK_FORMAT QDiskInfo::getDiskFormat()
 {
     return disk_format;
 }

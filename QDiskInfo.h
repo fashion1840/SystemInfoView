@@ -1,5 +1,5 @@
-﻿#ifndef CDISKINFO_H
-#define CDISKINFO_H
+﻿#ifndef QDISKINFO_H
+#define QDISKINFO_H
 
 #include <string>
 
@@ -59,15 +59,15 @@ typedef enum
     DISK_FORMAT_UNKNOW //其他省略
 } DISK_FORMAT;
 
-class CDiskInfo
+class QDiskInfo
 {
 public:
     /*
      * 设置磁盘目录
      */
-    CDiskInfo(const std::string &_path = "/data/");
+    QDiskInfo(const std::string &_path = "/data/");
 
-    virtual ~CDiskInfo();
+    virtual ~QDiskInfo();
 
     /*
      * 刷新磁盘信息
@@ -106,4 +106,4 @@ private:
     std::string path;
 };
 
-#endif // CDISKINFO_H
+#endif // QDISKINFO_H

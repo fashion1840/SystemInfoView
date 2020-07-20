@@ -1,5 +1,5 @@
 ﻿#include "LinuxSysInfo.h"
-#include "CDiskInfo.h"
+#include "QDiskInfo.h"
 #include <QString>
 #include <fcntl.h>
 #include <linux/fb.h>
@@ -185,7 +185,7 @@ QString LinuxSysInfo::disk()
 
     m_diskDescribe = QString("%1G / %2G").arg(freeDisk).arg();
 #else
-    CDiskInfo diskInfo("/");
+    QDiskInfo diskInfo("/");
     m_diskDescribe = QString("可用 %1 GB / 共 %2 GB")
                          .arg(QString::asprintf("%.2f", diskInfo.getLeftSize() * 1.0 / GB))
                          .arg(QString::asprintf("%.2f", diskInfo.getTotalSize() * 1.0 / GB));
